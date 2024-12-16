@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net" modified="2024-11-30T00:20:39.469Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" etag="Nf8qWZVi_PdhnQvcC6lO" version="23.1.6" type="device">
+  <diagram name="Page-1" id="GbXsQCWklBShaXXqf17Q">
+    <mxGraphModel dx="1434" dy="780" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="z1eKhtsEm1P8Q-9-XJSl-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="200" width="390" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="z1eKhtsEm1P8Q-9-XJSl-3" value="Action" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="367.5" y="370" width="95" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="z1eKhtsEm1P8Q-9-XJSl-4" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="230" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="z1eKhtsEm1P8Q-9-XJSl-5" value="Choose Image 1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="260" y="340" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="z1eKhtsEm1P8Q-9-XJSl-6" value="Image 1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="280" y="205" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="z1eKhtsEm1P8Q-9-XJSl-9" value="Text to embed OR display" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="470" y="205" width="97.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="z1eKhtsEm1P8Q-9-XJSl-11" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn1.iconfinder.com/data/icons/iconoir-vol-3/24/question-mark-circle-128.png" vertex="1" parent="1">
+          <mxGeometry x="562.5" y="380" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="z1eKhtsEm1P8Q-9-XJSl-13" value="If no arguments are provided, app pops up with an error log&lt;br&gt;If argument 1 is imported, the text box for arugment 2 is enabled (to optionally allow text to embed)&lt;br&gt;If both arguments are provided, the resulting action will remove text in text box and still show image 1, which will have imported text&lt;br&gt;With valid arguments, runtime will display the time taken to do the algorithm (does not consider import/export time)" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="235" y="440" width="360" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="z1eKhtsEm1P8Q-9-XJSl-15" value="Text Box" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="467.5" y="240" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="z1eKhtsEm1P8Q-9-XJSl-16" value="Runtime:" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="385" y="265" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="z1eKhtsEm1P8Q-9-XJSl-17" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="377.5" y="295" width="75" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="z1eKhtsEm1P8Q-9-XJSl-18" value="Steganography Python Gui concept art" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="276.5" y="150" width="286" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

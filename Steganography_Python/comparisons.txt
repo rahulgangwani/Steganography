@@ -1,0 +1,10 @@
+Before Optimizations
+Test#,Input,Output,Execution
+1,Lena_HelloWorld,Hello world,5.4ms
+2,Lena_LoremIpsum,Lorem Ipsum,11.5ms
+3,Lena_Empty,Nothing,17.69s
+
+Optimizations made by AI
+
+
+After optimizations
