@@ -97,48 +97,46 @@ class SteganographyApp:
         img = Image.open(self.image_path)
         img_array = np.array(img)
         
-        binary_text = ""
-        for i in range(img_array.shape[0]):
-            for j in range(img_array.shape[1]):
-                for k in range(img_array.shape[2]):
-                    binary_text += str(img_array[i, j, k] & 1)
-                    if len(binary_text) % 8 == 0:
-                        if binary_text[-8:] == '00000000':
-                            # Found null terminator, end of message
-                            decoded_text = ''.join(chr(int(binary_text[i:i+8], 2)) for i in range(0, len(binary_text)-8, 8))
-                            if decoded_text.isprintable():  # Check if the decoded text is valid
-                                return decoded_text
-                            else:
-                                return None  # Invalid text, likely no embedded message
+        # Extract the least significant bits
+        bits = np.unpackbits(img_array.reshape(-1)[:, np.newaxis], axis=1)[:, -1]
         
-        return None  # No hidden text found
+        # Convert bits to characters
+        chars = bits.reshape(-1, 8)[:(bits.size // 8)]
+        chars = np.packbits(chars)
+        
+        # Find the null terminator
+        null_pos = np.where(chars == 0)[0]
+        if null_pos.size > 0:
+            chars = chars[:null_pos[0]]
+        
+        # Convert to string
+        decoded_text = chars.tostring().decode('ascii', errors='ignore')
+        
+        return decoded_text if decoded_text.isprintable() else None
 
 
     def embed_text_in_image(self, text):
-        # Simple LSB steganography
         img = Image.open(self.image_path)
         img_array = np.array(img)
         
-        binary_text = ''.join(format(ord(char), '08b') for char in text)
-        binary_text += '00000000'  # Add null terminator
+        binary_text = ''.join(format(ord(char), '08b') for char in text) + '00000000'  # Add null terminator
         
         if len(binary_text) > img_array.size:
             messagebox.showerror("Error", "Text is too long for this image")
             return
         
-        index = 0
-        for i in range(img_array.shape[0]):
-            for j in range(img_array.shape[1]):
-                for k in range(img_array.shape[2]):
-                    if index < len(binary_text):
-                        img_array[i, j, k] = (img_array[i, j, k] & 254) | int(binary_text[index])
-                        index += 1
-                    else:
-                        break
-                if index >= len(binary_text):
-                    break
-            if index >= len(binary_text):
-                break
+        # Reshape the image array to 1D for faster processing
+        flat_img = img_array.reshape(-1)
+        
+        # Create a boolean mask for the bits to modify
+        mask = np.zeros(flat_img.size, dtype=bool)
+        mask[:len(binary_text)] = True
+        
+        # Modify the least significant bits
+        flat_img[mask] = (flat_img[mask] & ~1) | np.array(list(binary_text), dtype=int)
+        
+        # Reshape back to the original image shape
+        img_array = flat_img.reshape(img_array.shape)
         
         output_image = Image.fromarray(img_array)
         output_path = filedialog.asksaveasfilename(defaultextension=".png", filetypes=[("PNG files", "*.png")])

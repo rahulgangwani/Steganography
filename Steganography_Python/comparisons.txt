@@ -3,8 +3,18 @@ Test#,Input,Output,Execution
 1,Lena_HelloWorld,Hello world,5.4ms
 2,Lena_LoremIpsum,Lorem Ipsum,11.5ms
 3,Lena_Empty,Nothing,17.69s
+4,Lena_HelloWorldLarge,Hello World (Repeated for 100KB),7.94s
 
 Optimizations made by AI
-
+- Array was reshaped to 1D for faster operations
+- NumPy's vectorized Operations instead of for loops
+- Boolean masking to select only bits that need to be modified
+- Bitwise operations on entier arrays
+Ultimately reduces it to O(n) execution time from O(n^3)
 
 After optimizations
+Test#,Input,Output,Execution
+1,Lena_HelloWorld,Hello World,12.0ms
+2,Lena_LoremIpsum,Lorem Ipsum,11.9ms
+3,Lena_Empty,Nothing,1.3368s
+4,Lena_HelloWorldLarge,Hello World (Repeated for 100KB),16.1ms
