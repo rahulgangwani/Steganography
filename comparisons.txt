@@ -1,0 +1,41 @@
+######### PYTHON ##########################
+
+Before Optimizations
+Test#,Input,Output,Execution
+1,Lena_HelloWorld,Hello world,5.4ms
+2,Lena_LoremIpsum,Lorem Ipsum,11.5ms
+3,Lena_Empty,Nothing,17.69s
+4,Lena_HelloWorldLarge,Hello World (Repeated for 100KB),7.94s
+
+Optimizations made by AI
+- Array was reshaped to 1D for faster operations
+- NumPy's vectorized Operations instead of for loops
+- Boolean masking to select only bits that need to be modified
+- Bitwise operations on entier arrays
+Ultimately reduces it to O(n) execution time from O(n^3)
+
+After optimizations
+Test#,Input,Output,Execution
+1,Lena_HelloWorld,Hello World,12.0ms
+2,Lena_LoremIpsum,Lorem Ipsum,11.9ms
+3,Lena_Empty,Nothing,1.3368s
+4,Lena_HelloWorldLarge,Hello World (Repeated for 100KB),16.1ms
+
+########## C ##############################
+Test#,Input,Output,Execution
+1,Lena_HelloWorld,Hello world,4.98ms
+2,Lena_LoremIpsum,Lorem Ipsum,5.15ms
+3,Lena_Empty,Nothing,4.43ms
+4,Lena_HelloWorldLarge,Hello World (Repeated for 100KB),196ms
+
+Observations:
+- Perplexity AI is very good with Python, but not so great with C
+- After trial and error, we got it working. TBH, the hello world (100KB) is too big of a message for Lenna image.
+This means the python version messed up somewhere in encoding it. Honestly kind of wild how it did it properly because
+now it's failing to encode that message (which is valid), but can decode the previously encoded message from the old python code?
+- Overall, the C implementation (even though it has triple for loops), is still better execution than the original python code.
+- I also know enough C to confirm that the code generated is the correct steganography implementation. The python approach is not the intended
+algorithm I wanted to run simply by the fact that it's able to properly encode and decode a message whose total # of bits is greater than the image total # of bytes
+
+Ideally, with an FPGA, we can encode bits in parallel and improve the overall execution time compared to the C algorithm and even make it as optimal as the numpy approach
+(but wiht actually correct implementation). This would be the next step.

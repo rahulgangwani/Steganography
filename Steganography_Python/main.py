@@ -132,8 +132,14 @@ class SteganographyApp:
         mask = np.zeros(flat_img.size, dtype=bool)
         mask[:len(binary_text)] = True
         
+        # Convert to int16 to handle negative values during bitwise operations
+        flat_img_int16 = flat_img.astype(np.int16)
+        
         # Modify the least significant bits
-        flat_img[mask] = (flat_img[mask] & ~1) | np.array(list(binary_text), dtype=int)
+        flat_img_int16[mask] = (flat_img_int16[mask] & ~1) | np.array(list(binary_text), dtype=int)
+        
+        # Convert back to uint8
+        flat_img = flat_img_int16.astype(np.uint8)
         
         # Reshape back to the original image shape
         img_array = flat_img.reshape(img_array.shape)
